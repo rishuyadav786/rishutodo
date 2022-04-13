@@ -82,7 +82,7 @@ app.get("/api/getUsers", function (req, res) {
     })
 });
 
-app.post("/api/removeProductFromCart", function (req, res) {
+app.post("/api/removeData", function (req, res) {
     var mod = new Todos(req.body);
     console.log("id"+JSON.stringify(req.body))
     mod.deleteOne({ _id: mod._id }, function (err) {

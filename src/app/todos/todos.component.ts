@@ -50,6 +50,7 @@ export class TodosComponent implements OnInit {
     });
   }
   deleteTodo(todo){
+    console.log("data for delete= "+JSON.stringify(todo))
     this.commonService.removeProduct(todo);
     
   // console.log(todo)

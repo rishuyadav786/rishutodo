@@ -65,7 +65,7 @@ constructor(private commonService: CommonService){
   console.log("from function"+JSON.stringify(this.user))
     // this.userData.push(this.userSigninProfile.value);
     this.commonService.addUser(this.user);
-  
+  this.display=true;
     console.log(this.userData)
   }
   changeLoginOption(){
