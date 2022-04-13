@@ -4,3 +4,10 @@ export class Todo {
     desc:string
     active:boolean
 }
+export class User{
+    slo:number
+    name:string
+    email:string
+    password:string
+    active:boolean
+}

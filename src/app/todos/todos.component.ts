@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import{Todo} from'../todo';
 import { CommonService } from '../common.service'
+
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -11,8 +12,10 @@ export class TodosComponent implements OnInit {
   title = 'Todo List';
   todos:Todo[];
   localItem:string
+  startPos:Number=0;
+  endPos:number=3;
   constructor(private commonService: CommonService){
-      
+
 
 //     setTimeout(()=>{
 // this.title="Changed Title"
@@ -38,19 +41,21 @@ export class TodosComponent implements OnInit {
 
   ngOnInit(): void {
    
-    this.commonService.getAllTodos().subscribe((data: Todo[]) => {
+    this.commonService.getAllTodos(this.startPos,this.endPos).subscribe((data: Todo[]) => {
       this.todos = data;
-     
+    //  console.log(data.map(r=>r.title).toString())
       console.log("all todos= "+JSON.stringify(this.todos))
       
   
     });
   }
   deleteTodo(todo){
-  console.log(todo)
-  const index=this.todos.indexOf(todo);
-  this.todos.splice(index,1)
-  localStorage.setItem("todos",JSON.stringify(this.todos))
+    this.commonService.removeProduct(todo);
+    
+  // console.log(todo)
+  // const index=this.todos.indexOf(todo);
+  // this.todos.splice(index,1)
+  // localStorage.setItem("todos",JSON.stringify(this.todos))
     // this.todos.filter(data=>data.slo!=todo.slo)
   }
   addTodo(todo){
@@ -69,5 +74,13 @@ export class TodosComponent implements OnInit {
     openDispaly(){
       console.log("dispaly calling from ts file")
       this.commonService.callDisplay();
+    }
+    sendMail(){
+      this.commonService.sendMail();
+    }
+    nextData(){
+      this.startPos=Number(this.startPos)+Number(3);
+      this.endPos=Number(this.endPos)+Number(3);
+      this.ngOnInit();
     }
 }

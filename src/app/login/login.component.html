@@ -1,0 +1,120 @@
+<div class="loginform">
+
+
+<form *ngIf="display" #userForm1="ngForm" (ngSubmit)="signIn(userForm1.value)">
+        
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" [(ngModel)]="user.email" name="email" id="exampleInputEmail1"
+      aria-describedby="emailHelp" placeholder="Enter email">
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" [(ngModel)]="user.password" name="password"
+      id="exampleInputPassword1" placeholder="Password">
+  </div>
+
+  <button type="submit" name="submit" class="btn btn-primary"   >Login</button>
+</form>
+
+<form *ngIf="!display" #userForm="ngForm" (ngSubmit)="signUp(userForm.value)">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" [(ngModel)]="user.name" name="name" placeholder="Name" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email" id="inputEmail3">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" [(ngModel)]="user.password" name="password" placeholder="password" id="inputPassword3">
+    </div>
+  </div>
+ 
+
+  <div class="form-group row">
+    
+    <div class="col-sm-10">
+      <button  type="submit" class="btn btn-primary">Create Account</button>
+    </div>
+  </div>
+</form>
+
+<span *ngIf="display">Create new account <a (click)="changeLoginOption()" style="color:blue">SignUp</a></span>
+        <span *ngIf="!display">Already have an account <a (click)="changeLoginOption()"
+            style="color:blue">Login</a></span>
+
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- For login -->
+<!-- <div class="loginform" *ngIf="logSign">
+
+<form [formGroup]="userLoginProfile"  (ngSubmit)="signIn()" >
+   <label>Email: <input type="text" name="email" formControlName="email"></label>
+   <label>password: <input type="text" name="password" formControlName="password"></label>
+  <br/>
+   <button type="submit">Submit</button>
+</form>
+
+</div> -->
+
+<!-- For SignUp --> 
+
+<!-- <div class="loginform" *ngIf="!logSign">
+<form [formGroup]="userSigninProfile"  (ngSubmit)="signUp()" >
+
+    <label>
+      First Name:
+      <input type="text" formControlName="firstName">
+    </label>
+  
+    <label>
+      Email :
+      <input type="text" formControlName="userEmail">
+    </label>
+     <label>
+      Password:
+      <input type="text" formControlName="userPassword">
+    </label>
+     <br/>
+      <button type="submit" >Submit</button>
+  
+  </form>
+
+</div> -->
+
+
