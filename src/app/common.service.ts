@@ -17,8 +17,21 @@ export class CommonService {
  apiUrl="https://rkplaza.herokuapp.com"
   constructor(private http: HttpClient) { }
 
- 
-  
+  print(val,containerId){
+    let el=document.createElement('li');
+    el.innerText=val;
+    document.getElementById(containerId).appendChild(el)
+  }
+
+  getById(id) {
+
+    console.log("from service get by id"+id)
+    // return this.http.get(`api/leagues/${id}`).map(res => res.json());
+      return <any>this.http.get(`${this.apiUrl}`+`/api/getUserById/${id}`).pipe(map((Response: any) => Response));
+  }
+  getBirdsData(){
+    return this.http.get("https://picsum.photos/v2/list").pipe(map((Response:any)=>Response))
+  }
   getAllTodos(a,b) :Observable<Todo[]> {
     console.log("comig to service")
     return <any>this.http.get( `${this.apiUrl}`+"/api/getTodos/").pipe(map((Response: any) => Response.slice(a, b)))

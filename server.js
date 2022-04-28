@@ -94,6 +94,23 @@ app.post("/api/removeData", function (req, res) {
         }
     })
 })
+
+
+
+app.get("/api/getUserById", function (req, res) {
+    console.log("req body= "+req.body)
+    User.findOne({email: req.body.email}, function (err, data) {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            console.log("User data retrieved successfully")
+            res.send("Rishu")
+
+        }
+    })
+});
+
 app.use(express.static('./dist/Todo-List'));
 
 app.get('/*', (req, res) =>{

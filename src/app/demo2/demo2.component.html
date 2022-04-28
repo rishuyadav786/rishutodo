@@ -1,0 +1,10 @@
+<p>demo2 works!</p>
+<table>
+    <tr *ngFor="let data of pageData">
+        <td>{{data.id}}</td>
+        <td>{{data.userId}}</td>
+        <td>{{data.title}}</td>
+    </tr>
+</table>
+<button (click)="prvoius()">Previous</button>
+<button (click)="next()">Next</button>

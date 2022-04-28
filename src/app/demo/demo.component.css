@@ -1,0 +1,19 @@
+.birdsClass{
+    margin: 10px;
+    border:1px solid #eee;
+    
+
+}
+.birdName{
+    font-size:12px;
+    color:grey;
+    padding:5px;
+}
+.container{
+    width:30%;
+    margin-left:35%;
+}
+.heading{
+    /* margin:5px; */
+    padding: 5px;
+}

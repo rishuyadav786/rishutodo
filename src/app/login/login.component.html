@@ -1,5 +1,10 @@
-<div class="loginform">
+<div *ngFor="let temp of userData">
+  {{temp.name}} {{temp.email}}
+</div>
 
+
+
+<div class="loginform">
 
 <form *ngIf="display" #userForm1="ngForm" (ngSubmit)="signIn(userForm1.value)">
         

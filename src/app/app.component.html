@@ -9,8 +9,15 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/']">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" >
+          <a class="nav-link"  [routerLink]="['/rxjs']" >RXJS</a>
+        </li>
+        <li class="nav-item" *ngIf="!login_user_name">
           <a class="nav-link" [routerLink]="['/login']" >Login</a>
+        </li>
+        
+        <li class="nav-item" *ngIf="login_user_name">
+          <a class="nav-link" (click)="logout()">Logout</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,8 +30,9 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+       
+        <li class="nav-item" >
+          {{login_user_name}}
         </li>
       </ul>
       <form class="d-flex">
